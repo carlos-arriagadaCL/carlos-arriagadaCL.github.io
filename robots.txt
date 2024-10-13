@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /src/components/
+Disallow: /src/icons/
+Disallow: /src/layouts/
+Disallow: /public/themes/
+Disallow: /node_modules/
+Disallow: /astro.config.mjs
+Disallow: /tailwind.config.mjs
+Disallow: /tsconfig.json
+Disallow: /cv.json
+
+Allow: /src/pages/

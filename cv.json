@@ -1,0 +1,247 @@
+{
+  "basics": {
+    "name": "Carlos Arriagada I.",
+    "label": "Junior Software Engineer",
+    "image": "/me_avatar.avif",
+    "email": "carl.arriagadacl@gmail.com",
+    "phone": "",
+    "url": "https://carlos-arriagadacl.github.io",
+    "summary": "Ingeniero en Informática con experiencia en desarrollo de software y especialización en backend e ingeniería de datos. Apasionado por la tecnología, me enfoco en crear soluciones escalables y optimizar procesos. Busco nuevos desafíos que impulsen mi crecimiento y aporten valor en el ámbito tecnológico.",
+    "theme": "red",
+    "location": {
+      "address": "",
+      "postalCode": "8320000",
+      "city": "Santiago",
+      "countryCode": "CL",
+      "region": "Chile"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "carlos-arriagadacl",
+        "url": "https://www.linkedin.com/in/carlos-arriagadacl/"
+      },
+      {
+        "network": "X",
+        "username": "DevArriagada",
+        "url": "https://x.com/DevArriagada"
+      },
+      {
+        "network": "GitHub",
+        "username": "carlos-arriagadaCL",
+        "url": "https://github.com/carlos-arriagadaCL"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Turistik",
+      "position": "Desarrollador de Software - Prácticas",
+      "location_type": "Híbrido",
+      "location": "Santiago, Chile",
+      "url": "https://turistik.com/",
+      "startDate": "2024-10-07",
+      "endDate": null,
+      "summary": "Implementación de un sistema de control de acceso basado en roles (RBAC) para reemplazar una solución heredada, usando Node.js y Express. Este proyecto busca optimizar la seguridad, escalabilidad y administración de accesos en entornos de alta demanda.",
+      "highlights": ["Improved website performance by optimizing code"],
+      "responsibilities": [
+        "Colaboración activa: Trabajé junto al desarrollador principal para definir y diseñar la arquitectura del sistema RBAC.",
+        "Desarrollo backend: Implementé y optimicé módulos y controladores clave en Node.js y Express para asegurar una administración robusta de accesos.",
+        "Gestión de datos: Contribuí al diseño de un esquema de base de datos para soportar altos volúmenes de información, mejorando la eficiencia y consistencia de los datos.",
+        "Pruebas y validación: Realicé pruebas unitarias y de integración, garantizando la calidad y confiabilidad del sistema antes de su implementación en producción."
+      ],
+      "achievements": [
+        "Logré mejorar la eficiencia en la administración de accesos en un 30%, mitigando riesgos de seguridad y estableciendo una base escalable para el crecimiento futuro de la infraestructura de Turistik."
+      ],
+      "skills": ["Node", "Express", "MSSQL", "GitHub"]
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "",
+      "position": "",
+      "url": "",
+      "startDate": "",
+      "endDate": "",
+      "summary": "",
+      "highlights": [""]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Duoc UC",
+      "url": "https://www.duoc.cl/",
+      "area": "Ingeniería en Informática",
+      "studyType": "Título Profesional",
+      "startDate": "2023-03-01",
+      "endDate": "2024-12-31",
+      "score": "",
+      "courses": [
+        "Análisis y desarrollo de modelos de datos",
+        "Programación de software",
+        "Internacional en inglés intermedio alto",
+        "Arquitectura de software",
+        "Inteligencia de negocios",
+        "Análisis y planificación de requerimientos informáticos",
+        "Calidad de software",
+        "Gestión de proyectos informáticos"
+      ]
+    },
+    {
+      "institution": "Duoc UC",
+      "url": "https://www.duoc.cl/",
+      "area": "Analista Programador Computacional",
+      "studyType": "Titulo Técnico",
+      "startDate": "2021-03-01",
+      "endDate": "2022-12-31",
+      "score": "",
+      "courses": [""]
+    }
+  ],
+  "certificates": [
+    {
+      "name": "- Análisis y desarrollo de modelos de datos\n- Programación de software\n- Internacional en inglés intermedio alto\n- Arquitectura de software\n- Inteligencia de negocios\n- Análisis y planificación de requerimientos informáticos\n- Calidad de software\n- Gestión de proyectos informáticos",
+      "date": "2024-12-31",
+      "issuer": "Duoc UC",
+      "url": ""
+    },
+    {
+      "name": "Scrum Foundation Professional Certificate",
+      "date": "2023-06-01",
+      "issuer": "CertiProf",
+      "url": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "HTML",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "CSS",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "JavaScript",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "TypeScript",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Java",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "PHP",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "SQL",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Node",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Express",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "React",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Tailwind",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Next",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Spring",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Django",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "GCP",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Git",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "PowerBI",
+      "level": "",
+      "keywords": [""]
+    },
+    {
+      "name": "Docker",
+      "level": "",
+      "keywords": [""]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Spanish",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Intermediate-High"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Technology",
+      "keywords": ["Backend", "Frontend", "Big Data", "Cloud Computing"]
+    }
+  ],
+  "references": [
+    {
+      "name": "",
+      "reference": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "Portafolio personal",
+      "isActive": true,
+      "description": "Un sitio web de portafolio personal para mostrar mis experiencias, proyectos y habilidades.",
+      "highlights": [
+        "Creado con Astro y Tailwind CSS",
+        "Incluye diferentes secciones como experiencia laboral, educación, habilidades y proyectos"
+      ],
+      "url": "https://carlos-arriagadacl.github.io/",
+      "github": "https://github.com/carlos-arriagadaCL/carlos-arriagadaCL.github.io"
+    }
+  ]
+}

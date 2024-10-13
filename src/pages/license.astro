@@ -1,0 +1,41 @@
+---
+import Layout from "@/layouts/Layout.astro";
+const year = new Date().getFullYear().toString();
+const fullname = "Carlos Arriagada Ibarra";
+
+// Definir el contenido de la licencia con los marcadores de posición
+let licenseText = `
+MIT License
+
+Copyright (c) {year} {fullname}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.`;
+
+// Reemplazar los marcadores de posición
+licenseText = licenseText
+  .replace("{year}", year)
+  .replace("{fullname}", fullname);
+---
+
+<Layout {...{ title: "Licencia" }}
+  ><main class="p-4">
+    <pre
+      class="whitespace-pre-wrap rounded-lg bg-gray-100 p-4">{licenseText}</pre>
+  </main></Layout
+>

@@ -1,0 +1,48 @@
+---
+import Theme from "@/icons/themeSwitch.astro";
+---
+
+<div class="no-print inline-flex items-center">
+  <div class="group/theme flex items-center gap-2">
+    <Theme />
+  </div>
+
+  <style>
+    :global(.dark) {
+      color-scheme: dark;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const themeSwitch = document.getElementById(
+        "themeSwitch",
+      ) as HTMLInputElement;
+
+      // Verificar que el elemento existe antes de usarlo
+      if (!themeSwitch) return;
+
+      const theme = localStorage.getItem("theme");
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+
+      // Cargar el tema actual en el checkbox
+      if (theme === "dark" || (!theme && systemTheme === "dark")) {
+        document.documentElement.classList.add("dark");
+        themeSwitch.checked = true;
+      }
+
+      themeSwitch.addEventListener("change", () => {
+        if (themeSwitch.checked) {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+          localStorage.setItem("theme", "light");
+        }
+      });
+    });
+  </script>
+</div>

@@ -1,3 +1,18 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "outDir": "./public",
+    "module": "ESNext",
+    "target": "ES2015",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "lib": ["ES2015", "DOM", "ES2015.Iterable", "ES2015.Collection"],
+    "baseUrl": ".",
+    "paths": {
+      "@cv": ["./cv.json"],
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["public/alpine"]
 }

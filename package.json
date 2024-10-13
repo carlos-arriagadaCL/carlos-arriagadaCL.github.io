@@ -1,17 +1,30 @@
 {
-  "name": "portfolio",
+  "name": "carlos-website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "copy-alpine": "cp node_modules/alpinejs/dist/module.esm.js public/alpine/alpine.js && cp node_modules/@alpinejs/collapse/dist/module.esm.js public/alpine/collapse.js",
+    "postinstall": "bun run copy-alpine"
   },
   "dependencies": {
-    "astro": "^4.14.5",
-    "@astrojs/check": "^0.9.3",
-    "typescript": "^5.5.4"
+    "@alpinejs/collapse": "^3.14.1",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.2",
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "alpinejs": "^3.14.1",
+    "astro": "^4.16.2",
+    "hotkeypad": "0.1.1",
+    "prettier-plugin-tailwindcss": "^0.6.8",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

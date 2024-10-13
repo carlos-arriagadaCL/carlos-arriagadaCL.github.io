@@ -1,0 +1,149 @@
+<body>
+  <div class="switch-container">
+    <input
+      type="checkbox"
+      id="themeSwitch"
+      role="switch"
+      aria-checked="false"
+      aria-label="Toggle dark mode"
+    />
+    <label for="themeSwitch">
+      <span class="sun-icon" aria-hidden="true">
+        <i class="fas fa-sun"></i>
+      </span>
+      <span class="moon-icon" aria-hidden="true">
+        <i class="fas fa-moon"></i>
+      </span>
+      <span class="ball"></span>
+    </label>
+  </div>
+
+  <style>
+    :root {
+      --background-color: #222;
+      --background-color-checked: #ddd;
+      --sun-color: gold;
+      --moon-color: #fff;
+      --ball-color: #fff;
+      --ball-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      --transition-duration: 0.4s;
+    }
+
+    .switch-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      width: 4.375rem;
+      height: 2.1875rem;
+      background: var(--background-color);
+      border-radius: 50px;
+      position: relative;
+      padding: 0 0.3125rem;
+      cursor: pointer;
+      transition: background var(--transition-duration) ease;
+    }
+
+    label i {
+      font-size: 1.125rem;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition:
+        opacity var(--transition-duration) ease,
+        transform var(--transition-duration) ease;
+    }
+
+    .fa-sun {
+      color: var(--sun-color);
+      left: 0.6rem;
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .fa-moon {
+      color: #fff;
+      right: 0.8rem;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .ball {
+      position: absolute;
+      width: 1.75rem;
+      height: 1.75rem;
+      background: var(--ball-color);
+      border-radius: 50%;
+      top: 50%;
+      left: 0.3125rem;
+      transform: translateY(-50%);
+      transition:
+        transform var(--transition-duration) ease,
+        background var(--transition-duration) ease;
+      box-shadow: var(--ball-shadow);
+      z-index: 1;
+    }
+
+    input {
+      display: none;
+    }
+
+    input:checked + label {
+      background: var(--background-color-checked);
+    }
+
+    input:checked + label .fa-sun {
+      opacity: 0;
+      transform: translateY(-50%) scale(0.8);
+    }
+
+    input:checked + label .fa-moon {
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+
+    input:checked + label .ball {
+      transform: translate(2rem, -50%);
+      background: var(--background-color);
+    }
+  </style>
+
+  <script>
+    function syncThemeWithSystem() {
+      const themeSwitch = document.getElementById(
+        "themeSwitch",
+      ) as HTMLInputElement | null;
+
+      const prefersDarkScheme = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      );
+
+      function updateTheme(isDarkMode: boolean) {
+        if (!themeSwitch) return; // Verificación de null dentro de la función
+        document.documentElement.classList.toggle("dark", isDarkMode);
+        themeSwitch.checked = isDarkMode;
+      }
+
+      if (themeSwitch) {
+        updateTheme(prefersDarkScheme.matches);
+
+        prefersDarkScheme.addEventListener("change", (event) => {
+          updateTheme(event.matches);
+        });
+
+        themeSwitch.addEventListener("change", () => {
+          if (!themeSwitch) return; // Verificación de null dentro del listener
+          const isDarkMode = themeSwitch.checked;
+          document.documentElement.classList.toggle("dark", isDarkMode);
+          localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", syncThemeWithSystem);
+  </script>
+</body>

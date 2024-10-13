@@ -1,0 +1,296 @@
+---
+const rutaIntentada = new URL(Astro.request.url).pathname;
+---
+
+<html lang="es">
+  <head>
+    <title>P&aacute;gina no encontrada - 404</title>
+    <link rel="stylesheet" href="/themes/themes.css" />
+    <style>
+      :root {
+        --color-bg: 28, 25, 23;
+        --color-text-base: 245, 245, 245;
+        --color-text-muted: 150, 150, 150;
+        --color-highlight: 239, 68, 68;
+        --color-highlight-hover: 220, 50, 70;
+      }
+
+      .background {
+        background-color: rgb(var(--color-bg));
+        color: rgb(var(--color-text-base));
+        position: relative;
+        overflow: hidden;
+      }
+
+      .background::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: linear-gradient(
+            135deg,
+            rgba(var(--color-highlight), 0.15) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            45deg,
+            rgba(var(--color-highlight), 0.15) 1px,
+            transparent 1px
+          );
+        background-size: 75px 75px;
+        z-index: -1;
+        opacity: 0.3;
+        animation: animateBg 10s linear infinite;
+      }
+
+      @keyframes animateBg {
+        from {
+          transform: translate(0, 0);
+        }
+        to {
+          transform: translate(100px, 100px);
+        }
+      }
+
+      @keyframes glitch {
+        0% {
+          opacity: 1;
+          transform: translate(0);
+        }
+        20% {
+          opacity: 0.8;
+          transform: translate(-1px, -1px);
+        }
+        40% {
+          opacity: 0.5;
+          transform: translate(1px, -1px);
+        }
+        60% {
+          opacity: 0.3;
+          transform: translate(-1px, 1px);
+        }
+        80% {
+          opacity: 0.9;
+          transform: translate(1px, 1px);
+        }
+        100% {
+          opacity: 1;
+          transform: translate(0);
+        }
+      }
+
+      @keyframes glitch-color {
+        0%,
+        100% {
+          clip-path: inset(0 0 0 0);
+        }
+        20% {
+          clip-path: inset(10% 0 10% 0);
+          transform: translate(-2px, -2px);
+        }
+        40% {
+          clip-path: inset(20% 0 20% 0);
+          transform: translate(2px, 2px);
+        }
+        60% {
+          clip-path: inset(30% 0 30% 0);
+          transform: translate(-2px, 2px);
+        }
+        80% {
+          clip-path: inset(40% 0 40% 0);
+          transform: translate(2px, -2px);
+        }
+      }
+
+      .glitch {
+        position: relative;
+        display: inline-block;
+        font-size: 2.5rem;
+        color: rgb(var(--color-text-base));
+        animation: glitch 1.5s infinite;
+        text-align: center;
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: "404";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        animation: glitch-color 1.5s infinite;
+        opacity: 0.75;
+      }
+
+      .glitch::before {
+        color: rgba(var(--color-highlight), 0.8);
+        left: 1px;
+        text-shadow: -1px 0 rgba(var(--color-highlight), 0.7);
+        animation-delay: 0.2s;
+      }
+
+      .glitch::after {
+        color: rgba(0, 255, 255, 0.6);
+        left: -1px;
+        text-shadow: -1px 0 rgba(0, 255, 255, 0.5);
+        animation-delay: 0.4s;
+      }
+
+      .typing {
+        color: rgb(var(--color-text-muted));
+        overflow: hidden;
+        white-space: nowrap;
+        animation:
+          typing 2s steps(30, end),
+          blink 0.7s step-end infinite;
+        border-right: 2px solid rgba(var(--color-highlight), 1);
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        0%,
+        50% {
+          border-color: transparent;
+        }
+        50%,
+        100% {
+          border-color: rgb(var(--color-highlight));
+        }
+      }
+
+      @keyframes blink-terminal {
+        0%,
+        50% {
+          opacity: 0;
+        }
+        50%,
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .ascii-art {
+        font-size: 1.25rem;
+        line-height: 1.2;
+        color: rgb(var(--color-highlight));
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .button {
+        background-color: rgb(var(--color-highlight));
+        color: rgb(var(--color-text-base));
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button:hover {
+        background-color: rgb(var(--color-highlight-hover));
+      }
+
+      .terminal-prompt {
+        display: inline-block;
+        animation: blink-terminal 0.8s infinite;
+        color: rgb(var(--color-highlight));
+      }
+
+      #error-info p {
+        color: rgb(var(--color-highlight));
+      }
+
+      @media (min-width: 640px) {
+        .glitch {
+          font-size: 3.5rem;
+        }
+        .ascii-art {
+          font-size: 1.5rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .glitch {
+          font-size: 4.5rem;
+        }
+        .ascii-art {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body
+    data-theme="dark-theme"
+    class="background m-0 flex h-screen flex-col items-center justify-center p-4 font-mono"
+  >
+    <header class="flex flex-col items-center text-center">
+      <h1 class="glitch mb-4" aria-label="404: Página no encontrada">404</h1>
+      <p class="typing mb-4 text-center text-lg md:text-xl lg:text-2xl">
+        Error: {rutaIntentada} no encontrada.
+      </p>
+    </header>
+
+    <main
+      aria-labelledby="error-info"
+      role="main"
+      class="max-w-full overflow-auto rounded-md bg-gray-800 p-4 text-center text-xs md:max-w-md md:text-sm lg:text-base"
+    >
+      <section id="error-info">
+        <p>
+          <span class="terminal-prompt">&gt;</span> [Sugerencia]: Volver al inicio
+        </p>
+      </section>
+      <div class="ascii-art" aria-hidden="true">
+        <pre id="ascii-container"></pre>
+      </div>
+    </main>
+
+    <button
+      id="goHomeButton"
+      class="button mt-8 md:text-base"
+      aria-label="Volver al inicio"
+    >
+      Volver al inicio
+    </button>
+
+    <script>
+      const asciiArtOptions = [
+        `_____\n/     \\\n| () () |\n\\  ^  /\n|||||\n|||||`,
+
+        `.-"^-.\n/_/_/_|_\\_\\\n'-------'`,
+
+        `______\n( o.o )\n(> <)`,
+
+        `(____)\n( o o )\n(  V  )\n/(     )\\\n^^ ^^`,
+
+        `.--.\n|o_o |\n|:_/ |\n//   \\\\\n(|     | )\n/'\\_/'\\`,
+      ];
+
+      const asciiContainer = document.getElementById("ascii-container");
+      if (asciiContainer) {
+        const randomAscii =
+          asciiArtOptions[Math.floor(Math.random() * asciiArtOptions.length)];
+        asciiContainer.textContent = randomAscii;
+      }
+
+      const goHomeButton = document.getElementById("goHomeButton");
+      if (goHomeButton) {
+        goHomeButton.onclick = () => {
+          window.location.href = "/";
+        };
+      }
+    </script>
+  </body>
+</html>
