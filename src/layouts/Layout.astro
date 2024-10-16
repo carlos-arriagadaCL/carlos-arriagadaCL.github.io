@@ -48,6 +48,78 @@ const { image, summary, url, theme } = basics;
     <slot />
     <style is:global>
       body {
+        background-color: #f0f0f0; /* Color de fondo neutro */
+        position: relative; /* Necesario para el pseudo-elemento ::before */
+      }
+      body::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            30deg,
+            rgba(0, 0, 0, 0.05) 13.5%,
+            transparent 13.5%,
+            transparent 86.5%,
+            rgba(0, 0, 0, 0.05) 86.5%
+          ),
+          linear-gradient(
+            -30deg,
+            rgba(0, 0, 0, 0.05) 13.5%,
+            transparent 13.5%,
+            transparent 86.5%,
+            rgba(0, 0, 0, 0.05) 86.5%
+          ),
+          linear-gradient(
+            30deg,
+            rgba(0, 0, 0, 0.05) 13.5%,
+            transparent 13.5%,
+            transparent 86.5%,
+            rgba(0, 0, 0, 0.05) 86.5%
+          ),
+          linear-gradient(
+            -30deg,
+            rgba(0, 0, 0, 0.05) 13.5%,
+            transparent 13.5%,
+            transparent 86.5%,
+            rgba(0, 0, 0, 0.05) 86.5%
+          ),
+          linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.05) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(0, 0, 0, 0.05) 75%
+          ),
+          linear-gradient(
+            45deg,
+            rgba(0, 0, 0, 0.05) 25%,
+            transparent 25%,
+            transparent 75%,
+            rgba(0, 0, 0, 0.05) 75%
+          );
+        background-position:
+          0em 2em,
+          0em 2em,
+          2em 4em,
+          2em 4em,
+          0em 0em,
+          2em 2em;
+        background-size:
+          8em 4em,
+          8em 4em,
+          8em 4em,
+          8em 4em,
+          4em 4em,
+          4em 4em;
+        filter: blur(14px); /* Aplicar un ligero desenfoque */
+        pointer-events: none; /* Permitir interacción con el contenido */
+        z-index: -1; /* Colocar detrás del contenido */
+      }
+
+      body {
         font-family: "Itim", sans-serif;
       }
 

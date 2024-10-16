@@ -8,13 +8,10 @@
       aria-label="Toggle dark mode"
     />
     <label for="themeSwitch">
-      <span class="sun-icon" aria-hidden="true">
+      <span class="ball">
         <i class="fas fa-sun"></i>
-      </span>
-      <span class="moon-icon" aria-hidden="true">
         <i class="fas fa-moon"></i>
       </span>
-      <span class="ball"></span>
     </label>
   </div>
 
@@ -43,35 +40,12 @@
       background: var(--background-color);
       border-radius: 50px;
       position: relative;
-      padding: 0 0.3125rem;
       cursor: pointer;
       transition: background var(--transition-duration) ease;
+      padding: 0 0.3125rem;
     }
 
-    label i {
-      font-size: 1.125rem;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      transition:
-        opacity var(--transition-duration) ease,
-        transform var(--transition-duration) ease;
-    }
-
-    .fa-sun {
-      color: var(--sun-color);
-      left: 0.6rem;
-      opacity: 1;
-      z-index: 2;
-    }
-
-    .fa-moon {
-      color: #fff;
-      right: 0.8rem;
-      opacity: 0;
-      z-index: 2;
-    }
-
+    /* Bola del toggle que contiene los íconos */
     .ball {
       position: absolute;
       width: 1.75rem;
@@ -86,29 +60,51 @@
         background var(--transition-duration) ease;
       box-shadow: var(--ball-shadow);
       z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Ícono del sol, visible en modo claro */
+    .fa-sun {
+      color: var(--sun-color);
+      position: absolute;
+      font-size: 1rem;
+      opacity: 1; /* Visible en modo claro */
+      transition: opacity var(--transition-duration) ease;
+    }
+
+    /* Ícono de la luna, visible en modo oscuro */
+    .fa-moon {
+      color: var(--moon-color);
+      position: absolute;
+      font-size: 1rem;
+      opacity: 0; /* Oculto en modo claro */
+      transition: opacity var(--transition-duration) ease;
     }
 
     input {
       display: none;
     }
 
+    /* Cambios en el estado activado (modo oscuro) */
     input:checked + label {
       background: var(--background-color-checked);
     }
 
-    input:checked + label .fa-sun {
-      opacity: 0;
-      transform: translateY(-50%) scale(0.8);
-    }
-
-    input:checked + label .fa-moon {
-      opacity: 1;
-      transform: translateY(-50%) scale(1);
-    }
-
+    /* Movimiento de la bola e íconos al activar */
     input:checked + label .ball {
       transform: translate(2rem, -50%);
       background: var(--background-color);
+    }
+
+    /* Transición de visibilidad entre sol y luna */
+    input:checked + label .fa-sun {
+      opacity: 0; /* Oculta el sol en modo oscuro */
+    }
+
+    input:checked + label .fa-moon {
+      opacity: 1; /* Muestra la luna en modo oscuro */
     }
   </style>
 
@@ -123,7 +119,7 @@
       );
 
       function updateTheme(isDarkMode: boolean) {
-        if (!themeSwitch) return; // Verificación de null dentro de la función
+        if (!themeSwitch) return;
         document.documentElement.classList.toggle("dark", isDarkMode);
         themeSwitch.checked = isDarkMode;
       }
@@ -136,7 +132,7 @@
         });
 
         themeSwitch.addEventListener("change", () => {
-          if (!themeSwitch) return; // Verificación de null dentro del listener
+          if (!themeSwitch) return;
           const isDarkMode = themeSwitch.checked;
           document.documentElement.classList.toggle("dark", isDarkMode);
           localStorage.setItem("theme", isDarkMode ? "dark" : "light");
